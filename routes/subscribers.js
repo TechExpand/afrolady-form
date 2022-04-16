@@ -19,6 +19,8 @@ router.post("/", async (req, res) => {
     afrogistType,
 } = req.body;
 
+const date = new Date().toDateString();
+
   const auth = new google.auth.GoogleAuth({
     keyFile: "credentials.json",
     scopes: "https://www.googleapis.com/auth/spreadsheets",
@@ -66,6 +68,7 @@ router.post("/", async (req, res) => {
             country,
             publish,
             afrogistType,
+            date,
         ]],
         },
       });
