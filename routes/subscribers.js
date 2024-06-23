@@ -32,21 +32,21 @@ router.post("/", async (req, res) => {
 
   const formatTime = (date) => {
     const options = {
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric',
-      hour12: true,
-      timeZoneName: 'short'
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        hour12: true,
+        timeZoneName: 'short'
     };
 
     const timeString = date.toLocaleTimeString('en-US', options);
 
-    // Split the time string to separate time and timezone
-    const [time, timeZone] = timeString.split(' ');
-    const [hoursMinutesSeconds, ampm] = time.split(' ');
+    // Extract time and time zone abbreviation correctly
+    const [time, period, timeZone] = timeString.match(/(\d{1,2}:\d{2}:\d{2}) ([APM]+) (\w+)/);
 
-    return `${hoursMinutesSeconds} ${timeZone}`;
-  };
+    return `${time} ${period} ${timeZone}`;
+};
+
 
   const format_date = new Date();
   // Example usage
