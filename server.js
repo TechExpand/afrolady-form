@@ -15,5 +15,4 @@ const subscribersRouter = require('./routes/subscribers')
 app.use('/api/subscribers', subscribersRouter)
 
 
-
 app.listen(port, () => console.log('Server Started'))

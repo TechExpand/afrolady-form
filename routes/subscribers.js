@@ -45,7 +45,7 @@ router.post("/", async (req, res) => {
     const [time, timeZone] = timeString.split(' ');
     const [hoursMinutesSeconds, ampm] = time.split(' ');
 
-    return `${hoursMinutesSeconds} ${ampm} ${timeZone}`;
+    return `${hoursMinutesSeconds} ${timeZone}`;
   };
 
   const format_date = new Date();
